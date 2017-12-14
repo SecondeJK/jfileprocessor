@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use GuzzleHttp\Client;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
@@ -10,6 +11,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class FileImportController extends Controller {
 
+    /**
+     * @var \GuzzleHttp\Client
+     */
     private $httpHandler;
 
     /**
@@ -24,9 +28,12 @@ class FileImportController extends Controller {
         return new Response('App Index');
     }
 
+    /**
+     *
+     */
     public function setGuzzle()
     {
-        $this->httpHandler = $this->get('guzzle');
+        $this->httpHandler = $this->get('guzzle.client');
     }
 
     /**
@@ -42,6 +49,7 @@ class FileImportController extends Controller {
      */
     public function import(Request $request)
     {
+        $this->setGuzzle();
         $xmlContent = $request->getContent();
         $xmlFile = simplexml_load_string($xmlContent);
 
