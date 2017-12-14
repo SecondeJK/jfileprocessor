@@ -10,6 +10,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class FileImportController extends Controller {
 
+    private $httpHandler;
+
     /**
      * Basic route
      *
@@ -20,6 +22,11 @@ class FileImportController extends Controller {
     public function index()
     {
         return new Response('App Index');
+    }
+
+    public function setGuzzle()
+    {
+        $this->httpHandler = $this->get('guzzle');
     }
 
     /**
