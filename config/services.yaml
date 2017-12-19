@@ -1,6 +1,9 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+  app.siteOne: "jks1"
+  app.siteTwo: "jks2"
+  app.siteThree: "jks3"
 
 services:
     # default configuration for services in *this* file
@@ -27,3 +30,6 @@ services:
     # please note that last definitions always *replace* previous ones
     guzzle.client:
       class: GuzzleHttp\Client
+
+    app.parameterHelper:
+      class: App\Helper\ParameterHelper
