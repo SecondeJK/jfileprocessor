@@ -1,9 +1,9 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-  app.siteOne: "jks1"
-  app.siteTwo: "jks2"
-  app.siteThree: "jks3"
+  app.siteOne: "a1 a2 b2 b5"
+  app.siteTwo: "d4 k3 h5 m2"
+  app.siteThree: "p3 j4 m2 4k"
 
 services:
     # default configuration for services in *this* file

@@ -19,7 +19,12 @@ class ParameterArrayCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $output->writeln('Activated new command');
+
+        // test to make sure we're wired correctly
         $param1 = $this->getContainer()->getParameter('app.siteOne');
         $output->writeln($param1);
+
+        // test to make sure our service is wired correctly
+        $helperService = $this->getContainer()->get('app.parameterHelper');
     }
 }
