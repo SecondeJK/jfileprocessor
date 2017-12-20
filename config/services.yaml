@@ -31,5 +31,6 @@ services:
     guzzle.client:
       class: GuzzleHttp\Client
 
-    app.parameterHelper:
-      class: App\Helper\ParameterHelper
+    App\Helper\ParameterHelper:
+        arguments:
+            $parameterBag: ['%app.siteOne%', '%app.siteTwo%', '%app.siteThree%']
